@@ -1,0 +1,437 @@
+/*!
+ * SweetHelpers
+ * https://github.com/kobezzza/SweetHelpers
+ *
+ * Released under the MIT license
+ * https://github.com/kobezzza/SweetHelpers/blob/master/LICENSE
+ */
+
+macro isUndef {
+	rule ( ($obj:expr) ) => {
+		(typeof $obj === 'undefined')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isUndef($obj))
+	}
+}
+
+export isUndef;
+
+macro isNotUndef {
+	rule ( ($obj:expr) ) => {
+		(typeof $obj !== 'undefined')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotUndef($obj))
+	}
+}
+
+export isNotUndef;
+
+macro isNull {
+	rule ( ($obj:expr) ) => {
+		(isNotUndef($obj) && $obj === null)
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNull($obj))
+	}
+}
+
+export isNull;
+
+macro isNotNull {
+	rule ( ($obj:expr) ) => {
+		(isUndef($obj) || $obj !== null)
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotNull($obj))
+	}
+}
+
+export isNotNull;
+
+macro isBoolean {
+	rule { ($obj:expr) } => {
+		(typeof $obj === 'boolean')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isBoolean($obj))
+	}
+}
+
+export isBoolean;
+
+macro isNotBoolean {
+	rule { ($obj:expr) } => {
+		(typeof $obj !== 'boolean')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotBoolean($obj))
+	}
+}
+
+export isNotBoolean;
+
+macro isString {
+	rule { ($obj:expr) } => {
+		(typeof $obj === 'string')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isString($obj))
+	}
+}
+
+export isString;
+
+macro isNotString {
+	rule { ($obj:expr) } => {
+		(typeof $obj !== 'string')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotString($obj))
+	}
+}
+
+export isNotString;
+
+macro isNumber {
+	rule { ($obj:expr) } => {
+		(typeof $obj === 'number')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNumber($obj))
+	}
+}
+
+export isNumber;
+
+macro isNotNumber {
+	rule { ($obj:expr) } => {
+		(typeof $obj !== 'number')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotNumber($obj))
+	}
+}
+
+macro isNumeric {
+	rule { ($obj:expr) } => {
+		(isNumber($obj) && isFinite($obj))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNumeric($obj))
+	}
+}
+
+export isNumeric;
+
+macro isNotNumeric {
+	rule { ($obj:expr) } => {
+		(isNotNumber($obj) || !isFinite($obj))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotNumeric($obj))
+	}
+}
+
+export isNotNumeric;
+
+macro isRealNaN {
+	rule { ($obj:expr) } => {
+		(isNumber($obj) && isNaN($obj))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isRealNaN($obj))
+	}
+}
+
+export isRealNaN;
+
+macro isNotRealNaN {
+	rule { ($obj:expr) } => {
+		(isNotNumber($obj) || !isNaN($obj))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotRealNaN($obj))
+	}
+}
+
+export isNotRealNaN;
+
+macro isFunction {
+	rule { ($obj:expr) } => {
+		(typeof $obj === 'function')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isFunction($obj))
+	}
+}
+
+export isFunction;
+
+macro isNotFunction {
+	rule { ($obj:expr) } => {
+		(typeof $obj !== 'function')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotFunction($obj))
+	}
+}
+
+export isNotFunction;
+
+macro isGenerator {
+	rule { ($obj:expr) } => {
+		(isFunction($obj) && boolean($obj.constructor) && $obj.constructor.name === 'GeneratorFunction')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isGenerator($obj))
+	}
+}
+
+export isGenerator;
+
+macro isNotGenerator {
+	rule { ($obj:expr) } => {
+		(isNotFunction($obj) || !$obj.constructor || $obj.constructor.name !== 'GeneratorFunction')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotGenerator($obj))
+	}
+}
+
+export isNotGenerator;
+
+macro isPlainObject {
+	rule { ($obj:expr) } => {
+		(isNotUndef($obj) && boolean($obj) && boolean($obj.constructor) && ($obj.constructor === Object || $obj.constructor.name === 'Object'))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isPlainObject($obj))
+	}
+}
+
+export isPlainObject;
+
+macro isNotPlainObject {
+	rule { ($obj:expr) } => {
+		(isUndef($obj) || !$obj || !$obj.constructor || ($obj.constructor !== Object && $obj.constructor.name !== 'Object'))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotPlainObject($obj))
+	}
+}
+
+export isNotPlainObject;
+
+macro isArray {
+	rule { ($obj:expr) } => {
+		(isNotUndef($obj) && Array.isArray($obj))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isArray($obj))
+	}
+}
+
+export isArray;
+
+macro isNotArray {
+	rule { ($obj:expr) } => {
+		(isUndef($obj) || !Array.isArray($obj))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotArray($obj))
+	}
+}
+
+export isNotArray;
+
+macro type {
+	rule { ($obj:expr) } => {
+		(({}).toString.call($obj))
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(type($obj))
+	}
+}
+
+export type;
+
+macro iterator {
+	rule { ($obj:expr) } => {
+		(isNotUndef($obj) ? (isFunction($obj['@@iterator']) ?
+			$obj['@@iterator'] : isNotUndef(Symbol) ? $obj[Symbol['iterator']] : undef) : undef)
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(iterator($obj))
+	}
+}
+
+export iterator;
+
+macro number {
+	rule { ($obj:expr) } => {
+		(+$obj)
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(number($obj))
+	}
+}
+
+export number;
+
+macro string {
+	rule { ($obj:expr) } => {
+		($obj + '')
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(string($obj))
+	}
+}
+
+export string;
+
+macro boolean {
+	rule { ($obj:expr) } => {
+		(!!$obj)
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(boolean($obj))
+	}
+}
+
+export boolean;
+
+macro undef {
+	rule { } => {
+		(void 0)
+	}
+}
+
+export undef;
+
+macro get {
+	rule { $obj:expr @ ($property) } => {
+		($obj[$property])
+	}
+
+	rule { $obj:expr @ ($head $tail ...) } => {
+		($obj[$head] || get $obj @ ($tail ...))
+	}
+
+	rule { ($obj:expr) ($x (,) ...) } => {
+		(get $obj @ ($x ...))
+	}
+
+	rule infix { $obj:expr:: | ($x (,) ...) } => {
+		(get $obj @ ($x ...))
+	}
+}
+
+macro in {
+	rule { $obj:expr @ ($property) } => {
+		($property $[in] $obj)
+	}
+
+	rule { $obj:expr @ ($head $tail ...) } => {
+		($head $[in] $obj && in $obj @ ($tail ...))
+	}
+
+	rule { ($obj:expr) ($x (,) ...) } => {
+		(in $obj @ ($x ...))
+	}
+
+	rule infix { $obj:expr:: | ($x (,) ...) } => {
+		(in $obj @ ($x ...))
+	}
+}
+
+macro not {
+	rule { $obj:expr @ ($property) } => {
+		($property $[in] $obj === false)
+	}
+
+	rule { $obj:expr @ ($head $tail ...) } => {
+		($head $[in] $obj === false && not $obj @ ($tail ...))
+	}
+
+	rule { ($obj:expr) ($x (,) ...) } => {
+		(not $obj @ ($x ...))
+	}
+
+	rule infix { $obj:expr:: | ($x (,) ...) } => {
+		(not $obj @ ($x ...))
+	}
+}
+
+macro or {
+	rule { $obj:expr @ ($property) } => {
+		($property $[in] $obj)
+	}
+
+	rule { $obj:expr @ ($head $tail ...) } => {
+		($head $[in] $obj || or $obj @ ($tail ...))
+	}
+
+	rule { ($obj:expr) ($x (,) ...) } => {
+		(or $obj @ ($x ...))
+	}
+
+	rule infix { $obj:expr:: | ($x (,) ...) } => {
+		(or $obj @ ($x ...))
+	}
+}
+
+macro func {
+	rule { $arg => $body:expr }
+	rule { $arg => { $body ... } }
+	rule { ($args (,) ...) => $body:expr }
+	rule { ($args (,) ...) => { $body ... } }
+	rule { function ($args (,) ...) { $body ... } }
+	rule { function $name:ident ($args (,) ...) { $body ... } }
+}
+
+macro decorate {
+	rule { $f:expr @ ($decorator) } => {
+		$decorator($f)
+	}
+
+	rule { $f:func @ ($head $tail ...) } => {
+		decorate $head($f) @ ($tail ...)
+	}
+
+	rule { ($decorators:expr (,) ...) || $f:func } => {
+		(decorate $f @ ($decorators ...))
+	}
+
+	rule { ($decorators:expr (,) ...) :: $f:func } => {
+		(decorate $f @ ($decorators ...))
+	}
+}

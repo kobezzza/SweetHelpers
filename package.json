@@ -1,0 +1,27 @@
+{
+  "name": "sweet-helpers",
+  "description": "Collection of SweetJS macros.",
+  "homepage": "https://github.com/kobezzza/SweetHelpers",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "kobezzza",
+    "email": "kobezzza@mail.ru",
+    "url": "https://github.com/kobezzza"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kobezzza/SweetHelpers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kobezzza/SweetHelpers/issues"
+  },
+  "keywords": [
+    "javascript",
+    "macros",
+    "sweetjs"
+  ],
+  "devDependencies": {
+    "jscs": "^2.0.0"
+  }
+}
