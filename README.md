@@ -13,6 +13,21 @@ Collection of [SweetJS](http://sweetjs.org/) macros.
 npm install sweet-helpers --save-dev
 ```
 
+### Using with Gulp
+
+```js
+var gulp = require('gulp'),
+    sweetjs = requier('gulp-sweetjs');
+
+gulp.task('sweetjs', function () {
+  gulp.src('./myFile.js')
+    .pipe(sweetjs({modules: ['./node_modules/sweet-helpers/index.sweetjs']}))
+    .pipe(gulp.dest('./public/js'));
+});
+
+gulp.task('default', ['sweetjs']);
+```
+
 ## Macros
 ### undef
 
