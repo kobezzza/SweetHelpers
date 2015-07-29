@@ -74,7 +74,7 @@ typeof foo !== 'undefined'
 
 ### isSet
 
-Returns true if the specified value is null or undefined.
+Returns true if the specified value isn't null or undefined.
 
 **Template**
 
@@ -96,7 +96,7 @@ typeof foo !== 'undefined' && foo !== null
 
 ### isNotSet
 
-Returns true if the specified value isn't null or undefined.
+Returns true if the specified value is null or undefined.
 
 **Template**
 

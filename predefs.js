@@ -29,7 +29,7 @@ global.isNotUndef = function (obj) {
 };
 
 /**
- * Returns true if the specified value is null or undefined
+ * Returns true if the specified value isn't null or undefined
  *
  * @param {?} obj - source string
  * @return {boolean}
@@ -39,7 +39,7 @@ global.isSet = function (obj) {
 };
 
 /**
- * Returns true if the specified value isn't null or undefined
+ * Returns true if the specified value is null or undefined
  *
  * @param {?} obj - source string
  * @return {boolean}
