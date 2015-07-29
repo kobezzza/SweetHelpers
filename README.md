@@ -604,17 +604,45 @@ Returns true if any of specified properties are exists in an object.
 **Template**
 
 ```js
-use(foo).or('foo', 'bar')
+use(foo).some('foo', 'bar')
 ```
 
 Or
 
 ```js
-foo::or('foo', 'bar')
+foo::some('foo', 'bar')
 ```
 
 **Result**
 
 ```js
 'foo' in foo || 'bar' in foo
+```
+
+### decorate
+
+Decorates a function.
+
+**Template**
+
+```js
+var foo = decorate(bar, car) :: function () {
+  return 1;
+};
+```
+
+Or
+
+```js
+var foo = decorate(bar, car) || function () {
+  return 1;
+};
+```
+
+**Result**
+
+```js
+var foo = car(bar(function () {
+  return 1;
+}));
 ```
