@@ -1,7 +1,7 @@
 SweetHelpers
 ============
 
-Collection of [SweetJS](http://sweetjs.org/) macros.
+Collection of [SweetJS](http://sweetjs.org) macros.
 
 [![NPM version](http://img.shields.io/npm/v/sweet-helpers.svg?style=flat)](http://badge.fury.io/js/sweet-helpers)
 [![NPM dependencies](http://img.shields.io/david/kobezzza/SweetHelpers.svg?style=flat)](https://david-dm.org/kobezzza/SweetHelpers)
@@ -13,7 +13,7 @@ Collection of [SweetJS](http://sweetjs.org/) macros.
 npm install sweet-helpers --save-dev
 ```
 
-### Using with Gulp
+### Using with [Gulp](http://gulpjs.com)
 
 ```js
 var gulp = require('gulp'),
