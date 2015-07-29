@@ -30,6 +30,30 @@ macro isNotUndef {
 
 export isNotUndef;
 
+macro isSet {
+	rule ( ($obj:expr) ) => {
+		(isNotUndef($obj) && $obj != null)
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isSet($obj))
+	}
+}
+
+export isSet;
+
+macro isNotSet {
+	rule ( ($obj:expr) ) => {
+		(isUndef($obj) || $obj == null)
+	}
+
+	rule infix { $obj:expr:: | () } => {
+		(isNotSet($obj))
+	}
+}
+
+export isNotSet;
+
 macro isNull {
 	rule ( ($obj:expr) ) => {
 		(isNotUndef($obj) && $obj === null)
@@ -196,78 +220,6 @@ macro isNotFunction {
 
 export isNotFunction;
 
-macro isGenerator {
-	rule { ($obj:expr) } => {
-		(isFunction($obj) && boolean($obj.constructor) && $obj.constructor.name === 'GeneratorFunction')
-	}
-
-	rule infix { $obj:expr:: | () } => {
-		(isGenerator($obj))
-	}
-}
-
-export isGenerator;
-
-macro isNotGenerator {
-	rule { ($obj:expr) } => {
-		(isNotFunction($obj) || !$obj.constructor || $obj.constructor.name !== 'GeneratorFunction')
-	}
-
-	rule infix { $obj:expr:: | () } => {
-		(isNotGenerator($obj))
-	}
-}
-
-export isNotGenerator;
-
-macro isPlainObject {
-	rule { ($obj:expr) } => {
-		(isNotUndef($obj) && boolean($obj) && boolean($obj.constructor) && ($obj.constructor === Object || $obj.constructor.name === 'Object'))
-	}
-
-	rule infix { $obj:expr:: | () } => {
-		(isPlainObject($obj))
-	}
-}
-
-export isPlainObject;
-
-macro isNotPlainObject {
-	rule { ($obj:expr) } => {
-		(isUndef($obj) || !$obj || !$obj.constructor || ($obj.constructor !== Object && $obj.constructor.name !== 'Object'))
-	}
-
-	rule infix { $obj:expr:: | () } => {
-		(isNotPlainObject($obj))
-	}
-}
-
-export isNotPlainObject;
-
-macro isArray {
-	rule { ($obj:expr) } => {
-		(isNotUndef($obj) && Array.isArray($obj))
-	}
-
-	rule infix { $obj:expr:: | () } => {
-		(isArray($obj))
-	}
-}
-
-export isArray;
-
-macro isNotArray {
-	rule { ($obj:expr) } => {
-		(isUndef($obj) || !Array.isArray($obj))
-	}
-
-	rule infix { $obj:expr:: | () } => {
-		(isNotArray($obj))
-	}
-}
-
-export isNotArray;
-
 macro type {
 	rule { ($obj:expr) } => {
 		(({}).toString.call($obj))
@@ -282,8 +234,8 @@ export type;
 
 macro iterator {
 	rule { ($obj:expr) } => {
-		(isNotUndef($obj) ? (isFunction($obj['@@iterator']) ?
-			$obj['@@iterator'] : isNotUndef(Symbol) ? $obj[Symbol['iterator']] : undef) : undef)
+		(isSet($obj) ? (isFunction($obj['@@iterator']) ?
+			$obj['@@iterator'] : isFunction(Symbol) ? $obj[Symbol['iterator']] : undef) : undef)
 	}
 
 	rule infix { $obj:expr:: | () } => {
@@ -337,77 +289,97 @@ macro undef {
 
 export undef;
 
+macro _get {
+	rule { ($obj:expr, $property) } => {
+		$obj[$property]
+	}
+
+	rule { ($obj:expr, $head $tail ...) } => {
+		$obj[$head] || _get($obj, $tail ...)
+	}
+}
+
 macro get {
-	rule { $obj:expr @ ($property) } => {
-		($obj[$property])
+	rule infix { $obj:expr:: | ($x:expr (,) ...) } => {
+		(_get($obj, $x ...))
+	}
+}
+
+export get;
+
+macro _in {
+	rule { ($obj:expr, $property) } => {
+		$property $[in] $obj
 	}
 
-	rule { $obj:expr @ ($head $tail ...) } => {
-		($obj[$head] || get $obj @ ($tail ...))
-	}
-
-	rule { ($obj:expr) ($x (,) ...) } => {
-		(get $obj @ ($x ...))
-	}
-
-	rule infix { $obj:expr:: | ($x (,) ...) } => {
-		(get $obj @ ($x ...))
+	rule { ($obj:expr, $head $tail ...) } => {
+		$head $[in] $obj && _in($obj, $tail ...)
 	}
 }
 
 macro in {
-	rule { $obj:expr @ ($property) } => {
-		($property $[in] $obj)
+	rule infix { $obj:expr:: | ($x:expr (,) ...) } => {
+		(_in($obj, $x ...))
+	}
+}
+
+export in;
+
+macro _not {
+	rule { ($obj:expr, $property) } => {
+		$property $[in] $obj === false
 	}
 
-	rule { $obj:expr @ ($head $tail ...) } => {
-		($head $[in] $obj && in $obj @ ($tail ...))
-	}
-
-	rule { ($obj:expr) ($x (,) ...) } => {
-		(in $obj @ ($x ...))
-	}
-
-	rule infix { $obj:expr:: | ($x (,) ...) } => {
-		(in $obj @ ($x ...))
+	rule { ($obj:expr, $head $tail ...) } => {
+		$head $[in] $obj === false && _not($obj, $tail ...)
 	}
 }
 
 macro not {
-	rule { $obj:expr @ ($property) } => {
-		($property $[in] $obj === false)
+	rule infix { $obj:expr:: | ($x:expr (,) ...) } => {
+		(_not($obj, $x ...))
+	}
+}
+
+export not;
+
+macro _or {
+	rule { ($obj:expr, $property) } => {
+		$property $[in] $obj
 	}
 
-	rule { $obj:expr @ ($head $tail ...) } => {
-		($head $[in] $obj === false && not $obj @ ($tail ...))
-	}
-
-	rule { ($obj:expr) ($x (,) ...) } => {
-		(not $obj @ ($x ...))
-	}
-
-	rule infix { $obj:expr:: | ($x (,) ...) } => {
-		(not $obj @ ($x ...))
+	rule { ($obj:expr, $head $tail ...) } => {
+		$head $[in] $obj || _or($obj, $tail ...)
 	}
 }
 
 macro or {
-	rule { $obj:expr @ ($property) } => {
-		($property $[in] $obj)
-	}
-
-	rule { $obj:expr @ ($head $tail ...) } => {
-		($head $[in] $obj || or $obj @ ($tail ...))
-	}
-
-	rule { ($obj:expr) ($x (,) ...) } => {
-		(or $obj @ ($x ...))
-	}
-
-	rule infix { $obj:expr:: | ($x (,) ...) } => {
-		(or $obj @ ($x ...))
+	rule infix { $obj:expr:: | ($x:expr (,) ...) } => {
+		(_or($obj, $x ...))
 	}
 }
+
+export or;
+
+macro use {
+	rule { ($obj:expr).get($x:expr (,) ...) } => {
+		(_get($obj, $x ...))
+	}
+
+	rule { ($obj:expr).in($x:expr (,) ...) } => {
+		(_in($obj, $x ...))
+	}
+
+	rule { ($obj:expr).not($x:expr (,) ...) } => {
+		(_not($obj, $x ...))
+	}
+
+	rule { ($obj:expr).or($x:expr (,) ...) } => {
+		(_or($obj, $x ...))
+	}
+}
+
+export use;
 
 macro func {
 	rule { $arg => $body:expr }
@@ -418,20 +390,24 @@ macro func {
 	rule { function $name:ident ($args (,) ...) { $body ... } }
 }
 
-macro decorate {
-	rule { $f:expr @ ($decorator) } => {
+macro _decorate {
+	rule { ($f:expr, $decorator) } => {
 		$decorator($f)
 	}
 
-	rule { $f:func @ ($head $tail ...) } => {
-		decorate $head($f) @ ($tail ...)
+	rule { ($f:func, $head $tail ...) } => {
+		_decorate($head($f), $tail ...)
 	}
+}
 
+macro decorate {
 	rule { ($decorators:expr (,) ...) || $f:func } => {
-		(decorate $f @ ($decorators ...))
+		(_decorate ($f, $decorators ...))
 	}
 
 	rule { ($decorators:expr (,) ...) :: $f:func } => {
-		(decorate $f @ ($decorators ...))
+		(_decorate ($f, $decorators ...))
 	}
 }
+
+export decorate;

@@ -29,6 +29,26 @@ global.isNotUndef = function (obj) {
 };
 
 /**
+ * Returns true if the specified value is null or undefined
+ *
+ * @param {?} obj - source string
+ * @return {boolean}
+ */
+global.isSet = function (obj) {
+	return false;
+};
+
+/**
+ * Returns true if the specified value isn't null or undefined
+ *
+ * @param {?} obj - source string
+ * @return {boolean}
+ */
+global.isNotSet = function (obj) {
+	return false;
+};
+
+/**
  * Returns true if the specified value is null
  *
  * @param {?} obj - source string
@@ -169,66 +189,6 @@ global.isNotFunction = function (obj) {
 };
 
 /**
- * Returns true if the specified value is a generator
- *
- * @param {?} obj - source value
- * @return {boolean}
- */
-global.isGenerator = function (obj) {
-	return false;
-};
-
-/**
- * Returns true if the specified value isn't a generator
- *
- * @param {?} obj - source value
- * @return {boolean}
- */
-global.isNotGenerator = function (obj) {
-	return false;
-};
-
-/**
- * Returns true if the specified value is a plain object
- *
- * @param {?} obj - source value
- * @return {boolean}
- */
-global.isPlainObject = function (obj) {
-	return false;
-};
-
-/**
- * Returns true if the specified value isn't a plain object
- *
- * @param {?} obj - source value
- * @return {boolean}
- */
-global.isNotPlainObject = function (obj) {
-	return false;
-};
-
-/**
- * Returns true if the specified value is an array
- *
- * @param {?} obj - source value
- * @return {boolean}
- */
-global.isArray = function (obj) {
-	return false;
-};
-
-/**
- * Returns true if the specified value isn't an array
- *
- * @param {?} obj - source value
- * @return {boolean}
- */
-global.isNotArray = function (obj) {
-	return false;
-};
-
-/**
  * Returns [[class]] of the specified value
  *
  * @param {?} obj - source value
@@ -294,11 +254,11 @@ global.get = function (obj) {
  * Returns true if all specified properties are exists in an object
  *
  * @param {?} obj - source object
- * @return {!Function}
+ * @return {function(...?): boolean}
  */
 global.in = function (obj) {
 	return function () {
-		return undefined;
+		return false;
 	};
 };
 
@@ -306,11 +266,11 @@ global.in = function (obj) {
  * Returns true if all specified properties aren't exists in an object
  *
  * @param {?} obj - source object
- * @return {!Function}
+ * @return {function(...?): boolean}
  */
 global.not = function (obj) {
 	return function () {
-		return undefined;
+		return false;
 	};
 };
 
@@ -318,11 +278,42 @@ global.not = function (obj) {
  * Returns true if any of specified properties are exists in an object
  *
  * @param {?} obj - source object
- * @return {!Function}
+ * @return {function(...?): boolean}
  */
 global.or = function (obj) {
 	return function () {
-		return undefined;
+		return false;
+	};
+};
+
+/**
+ * Returns an object for working with macro functions
+ *
+ * @param {?} obj - source object
+ * @return {{
+ *   get: function(...?): ?,
+ *   in: function(...?): boolean,
+ *   not: function(...?): boolean,
+ *   or: function(...?): boolean
+ * }}
+ */
+global.use = function (obj) {
+	return {
+		get: function () {
+			return undefined;
+		},
+
+		in: function () {
+			return false;
+		},
+
+		not: function () {
+			return false;
+		},
+
+		or: function () {
+			return false;
+		}
 	};
 };
 
