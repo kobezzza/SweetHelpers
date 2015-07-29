@@ -1,7 +1,17 @@
 SweetHelpers
 ============
 
-Collection of SweetJS macros.
+Collection of [SweetJS](http://sweetjs.org/) macros.
+
+[![NPM version](http://img.shields.io/npm/v/sweet-helpers.svg?style=flat)](http://badge.fury.io/js/sweet-helpers)
+[![NPM dependencies](http://img.shields.io/david/kobezzza/SweetHelpers.svg?style=flat)](https://david-dm.org/kobezzza/SweetHelpers)
+[![NPM devDependencies](http://img.shields.io/david/dev/kobezzza/SweetHelpers.svg?style=flat)](https://david-dm.org/kobezzza/SweetHelpers#info=devDependencies&view=table)
+
+## Install
+
+```js
+npm install sweet-helpers --save-dev
+```
 
 ## Macros
 ### undef
