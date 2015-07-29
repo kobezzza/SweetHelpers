@@ -6,6 +6,14 @@
  * https://github.com/kobezzza/SweetHelpers/blob/master/LICENSE
  */
 
+macro undef {
+	rule { } => {
+		(void 0)
+	}
+}
+
+export undef;
+
 macro isUndef {
 	rule ( ($obj:expr) ) => {
 		(typeof $obj === 'undefined')
@@ -280,14 +288,6 @@ macro boolean {
 }
 
 export boolean;
-
-macro undef {
-	rule { } => {
-		(void 0)
-	}
-}
-
-export undef;
 
 macro _get {
 	rule { ($obj:expr, $property) } => {

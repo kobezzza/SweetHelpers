@@ -25,7 +25,7 @@ undef
 **Result**
 
 ```js
-void
+void 0
 ```
 
 ### isUndef
