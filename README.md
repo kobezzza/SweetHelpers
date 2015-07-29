@@ -656,3 +656,7 @@ var foo = car(bar(function () {
   return 1;
 }));
 ```
+
+## [License](https://github.com/kobezzza/SweetHelpers/blob/master/LICENSE)
+
+The MIT License.
