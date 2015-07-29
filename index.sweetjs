@@ -32,7 +32,7 @@ export isNotUndef;
 
 macro isSet {
 	rule ( ($obj:expr) ) => {
-		(isNotUndef($obj) && $obj != null)
+		(isNotUndef($obj) && $obj !== null)
 	}
 
 	rule infix { $obj:expr:: | () } => {
@@ -44,7 +44,7 @@ export isSet;
 
 macro isNotSet {
 	rule ( ($obj:expr) ) => {
-		(isUndef($obj) || $obj == null)
+		(isUndef($obj) || $obj === null)
 	}
 
 	rule infix { $obj:expr:: | () } => {
@@ -309,7 +309,7 @@ export get;
 
 macro _in {
 	rule { ($obj:expr, $property) } => {
-		$property $[in] $obj
+		($property $[in] $obj)
 	}
 
 	rule { ($obj:expr, $head $tail ...) } => {
@@ -327,7 +327,7 @@ export in;
 
 macro _not {
 	rule { ($obj:expr, $property) } => {
-		$property $[in] $obj === false
+		($property $[in] $obj === false)
 	}
 
 	rule { ($obj:expr, $head $tail ...) } => {
@@ -343,19 +343,19 @@ macro not {
 
 export not;
 
-macro _or {
+macro _some {
 	rule { ($obj:expr, $property) } => {
-		$property $[in] $obj
+		($property $[in] $obj)
 	}
 
 	rule { ($obj:expr, $head $tail ...) } => {
-		$head $[in] $obj || _or($obj, $tail ...)
+		$head $[in] $obj || _some($obj, $tail ...)
 	}
 }
 
-macro or {
+macro some {
 	rule infix { $obj:expr:: | ($x:expr (,) ...) } => {
-		(_or($obj, $x ...))
+		(_some($obj, $x ...))
 	}
 }
 
@@ -374,8 +374,8 @@ macro use {
 		(_not($obj, $x ...))
 	}
 
-	rule { ($obj:expr).or($x:expr (,) ...) } => {
-		(_or($obj, $x ...))
+	rule { ($obj:expr).some($x:expr (,) ...) } => {
+		(_some($obj, $x ...))
 	}
 }
 

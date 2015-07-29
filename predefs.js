@@ -280,7 +280,7 @@ global.not = function (obj) {
  * @param {?} obj - source object
  * @return {function(...?): boolean}
  */
-global.or = function (obj) {
+global.some = function (obj) {
 	return function () {
 		return false;
 	};

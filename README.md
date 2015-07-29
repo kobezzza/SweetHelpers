@@ -6,13 +6,13 @@ Collection of SweetJS macros.
 ## Macros
 ### undef
 
-*Template*
+**Template**
 
 ```js
 undef
 ```
 
-*Result*
+**Result**
 
 ```js
 void
@@ -44,7 +44,7 @@ typeof foo === 'undefined'
 
 Returns true if the specified value isn't undefined.
 
-*Template*
+**Template**
 
 ```js
 isNotUndef(foo)
@@ -56,17 +56,61 @@ Or
 foo::isNotUndef()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo !== 'undefined'
+```
+
+### isSet
+
+Returns true if the specified value is null or undefined.
+
+**Template**
+
+```js
+isSet(foo)
+```
+
+Or
+
+```js
+foo::isSet()
+```
+
+**Result**
+
+```js
+typeof foo !== 'undefined' && foo !== null
+```
+
+### isNotSet
+
+Returns true if the specified value isn't null or undefined.
+
+**Template**
+
+```js
+isNotSet(foo)
+```
+
+Or
+
+```js
+foo::isNotSet()
+```
+
+**Result**
+
+```js
+typeof foo === 'undefined' || foo === null
 ```
 
 ### isNull
 
 Returns true if the specified value is null.
 
-*Template*
+**Template**
 
 ```js
 isNull(foo)
@@ -78,7 +122,7 @@ Or
 foo::isNull()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo !== 'undefined' && foo === null
@@ -88,7 +132,7 @@ typeof foo !== 'undefined' && foo === null
 
 Returns true if the specified value isn't null.
 
-*Template*
+**Template**
 
 ```js
 isNotNull(foo)
@@ -100,7 +144,7 @@ Or
 foo::isNotNull()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo === 'undefined' || foo !== null
@@ -110,7 +154,7 @@ typeof foo === 'undefined' || foo !== null
 
 Returns true if the specified value is boolean.
 
-*Template*
+**Template**
 
 ```js
 isBoolean(foo)
@@ -122,7 +166,7 @@ Or
 foo::isBoolean()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo === 'boolean'
@@ -132,7 +176,7 @@ typeof foo === 'boolean'
 
 Returns true if the specified value isn't boolean.
 
-*Template*
+**Template**
 
 ```js
 isNotBoolean(foo)
@@ -144,7 +188,7 @@ Or
 foo::isNotBoolean()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo !== 'boolean'
@@ -154,7 +198,7 @@ typeof foo !== 'boolean'
 
 Returns true if the specified value is a string.
 
-*Template*
+**Template**
 
 ```js
 isString(foo)
@@ -166,7 +210,7 @@ Or
 foo::isString()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo === 'string'
@@ -176,7 +220,7 @@ typeof foo === 'string'
 
 Returns true if the specified value isn't a string.
 
-*Template*
+**Template**
 
 ```js
 isNotString(foo)
@@ -188,7 +232,7 @@ Or
 foo::isNotString()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo !== 'string'
@@ -198,7 +242,7 @@ typeof foo !== 'string'
 
 Returns true if the specified value is a number.
 
-*Template*
+**Template**
 
 ```js
 isNumber(foo)
@@ -210,7 +254,7 @@ Or
 foo::isNumber()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo === 'number'
@@ -220,7 +264,7 @@ typeof foo === 'number'
 
 Returns true if the specified value is a number.
 
-*Template*
+**Template**
 
 ```js
 isNotNumber(foo)
@@ -232,7 +276,7 @@ Or
 foo::isNotNumber()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo !== 'number'
@@ -242,7 +286,7 @@ typeof foo !== 'number'
 
 Returns true if the specified value is numeric.
 
-*Template*
+**Template**
 
 ```js
 isNumber(foo)
@@ -254,7 +298,7 @@ Or
 foo::isNumber()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo === 'number' && isFinite(foo)
@@ -264,7 +308,7 @@ typeof foo === 'number' && isFinite(foo)
 
 Returns true if the specified value isn't numeric.
 
-*Template*
+**Template**
 
 ```js
 isNotNumeric(foo)
@@ -276,7 +320,7 @@ Or
 foo::isNotNumeric()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo !== 'number' || !isFinite(foo)
@@ -286,7 +330,7 @@ typeof foo !== 'number' || !isFinite(foo)
 
 Returns true if the specified value is NaN.
 
-*Template*
+**Template**
 
 ```js
 isRealNaN(foo)
@@ -298,7 +342,7 @@ Or
 foo::isRealNaN()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo === 'number' && isNaN(foo)
@@ -308,7 +352,7 @@ typeof foo === 'number' && isNaN(foo)
 
 Returns true if the specified value isn't NaN.
 
-*Template*
+**Template**
 
 ```js
 isNotRealNaN(foo)
@@ -320,7 +364,7 @@ Or
 foo::isNotRealNaN()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo !== 'number' || !isNaN(foo)
@@ -330,7 +374,7 @@ typeof foo !== 'number' || !isNaN(foo)
 
 Returns true if the specified value is a function.
 
-*Template*
+**Template**
 
 ```js
 isFunction(foo)
@@ -342,7 +386,7 @@ Or
 foo::isFunction()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo === 'function'
@@ -352,7 +396,7 @@ typeof foo === 'function'
 
 Returns true if the specified value isn't a function.
 
-*Template*
+**Template**
 
 ```js
 isNotFunction(foo)
@@ -364,150 +408,17 @@ Or
 foo::isNotFunction()
 ```
 
-*Result*
+**Result**
 
 ```js
 typeof foo !== 'function'
-```
-
-### isGenerator
-
-Returns true if the specified value is a generator.
-
-*Template*
-
-```js
-isGenerator(foo)
-```
-
-Or
-
-```js
-foo::isGenerator()
-```
-
-*Result*
-
-```js
-typeof foo === 'isFunction' && !!foo.constructor && foo.constructor.name === 'GeneratorFunction'
-```
-
-### isNotGenerator
-
-Returns true if the specified value isn't a generator.
-
-*Template*
-
-```js
-isNotGenerator(foo)
-```
-
-Or
-
-```js
-foo::isNotGenerator()
-```
-
-*Result*
-
-```js
-typeof foo !== 'function' || !foo.constructor || foo.constructor.name !== 'GeneratorFunction'
-```
-
-### isPlainObject
-
-Returns true if the specified value is a plain object.
-
-*Template*
-
-```js
-isPlainObject(foo)
-```
-
-Or
-
-```js
-foo::isPlainObject()
-```
-
-*Result*
-
-```js
-typeof foo !== 'undefined' && !!foo && !!foo.constructor && (foo.constructor === Object || foo.constructor.name === 'Object')
-```
-
-### isNotPlainObject
-
-Returns true if the specified value isn't a plain object.
-
-*Template*
-
-```js
-isPlainObject(foo)
-```
-
-Or
-
-```js
-foo::isPlainObject()
-```
-
-*Result*
-
-```js
-typeof foo === 'undefined' || !foo || !foo.constructor ||
-(foo.constructor !== Object && foo.constructor.name !== 'Object')
-```
-
-### isArray
-
-Returns true if the specified value is an array.
-
-*Template*
-
-```js
-isArray(foo)
-```
-
-Or
-
-```js
-foo::isArray()
-```
-
-*Result*
-
-```js
-typeof foo !== 'undefined' && Array.isArray(foo)
-```
-
-### isNotArray
-
-Returns true if the specified value isn't an array.
-
-*Template*
-
-```js
-isNotArray(foo)
-```
-
-Or
-
-```js
-foo::isNotArray()
-```
-
-*Result*
-
-```js
-typeof foo === 'undefined' || !Array.isArray(foo)
 ```
 
 ### type
 
 Returns [[class]] of the specified value.
 
-*Template*
+**Template**
 
 ```js
 type(foo)
@@ -519,8 +430,191 @@ Or
 foo::type()
 ```
 
-*Result*
+**Result**
 
 ```js
 ({}).toString.call(foo)
+```
+
+### iterator
+
+Returns a link for an iterator of the specified value.
+
+**Template**
+
+```js
+iterator(foo)
+```
+
+Or
+
+```js
+foo::iterator()
+```
+
+**Result**
+
+```js
+typeof foo !== 'undefined' && foo !== null ?
+  (typeof foo['@@iterator'] === 'function' ?
+    foo['@@iterator'] : typeof Symbol === 'function' ?
+      foo[Symbol['iterator']] : void 0) : void 0
+```
+
+### number
+
+Converts the specified value to a number.
+
+**Template**
+
+```js
+number(foo)
+```
+
+Or
+
+```js
+foo::number()
+```
+
+**Result**
+
+```js
+(+foo)
+```
+
+### string
+
+Converts the specified value to a string.
+
+**Template**
+
+```js
+string(foo)
+```
+
+Or
+
+```js
+foo::string()
+```
+
+**Result**
+
+```js
+(foo + '')
+```
+
+### boolean
+
+Converts the specified value to boolean.
+
+**Template**
+
+```js
+boolean(foo)
+```
+
+Or
+
+```js
+foo::boolean()
+```
+
+**Result**
+
+```js
+!!foo
+```
+
+### use
+
+Returns an object for working with macro functions.
+
+#### get
+
+Gets the first non false property from an object.
+
+**Template**
+
+```js
+use(foo).get('foo', 'bar')
+```
+
+Or
+
+```js
+foo::get('foo', 'bar')
+```
+
+**Result**
+
+```js
+foo['foo'] || foo['bar']
+```
+
+#### in
+
+Returns true if all specified properties are exists in an object.
+
+**Template**
+
+```js
+use(foo).in('foo', 'bar')
+```
+
+Or
+
+```js
+foo::in('foo', 'bar')
+```
+
+**Result**
+
+```js
+'foo' in foo && 'bar' in foo
+```
+
+#### not
+
+Returns true if all specified properties aren't exists in an object.
+
+**Template**
+
+```js
+use(foo).not('foo', 'bar')
+```
+
+Or
+
+```js
+foo::not('foo', 'bar')
+```
+
+**Result**
+
+```js
+'foo' in foo === false && 'bar' in foo === false
+```
+
+#### some
+
+Returns true if any of specified properties are exists in an object.
+
+**Template**
+
+```js
+use(foo).or('foo', 'bar')
+```
+
+Or
+
+```js
+foo::or('foo', 'bar')
+```
+
+**Result**
+
+```js
+'foo' in foo || 'bar' in foo
 ```
