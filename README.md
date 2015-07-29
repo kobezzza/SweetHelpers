@@ -38,7 +38,7 @@ Returns true if the specified value is undefined.
 isUndef(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isUndef()
@@ -60,7 +60,7 @@ Returns true if the specified value isn't undefined.
 isNotUndef(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotUndef()
@@ -82,7 +82,7 @@ Returns true if the specified value is null or undefined.
 isSet(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isSet()
@@ -104,7 +104,7 @@ Returns true if the specified value isn't null or undefined.
 isNotSet(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotSet()
@@ -126,7 +126,7 @@ Returns true if the specified value is null.
 isNull(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNull()
@@ -148,7 +148,7 @@ Returns true if the specified value isn't null.
 isNotNull(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotNull()
@@ -170,7 +170,7 @@ Returns true if the specified value is boolean.
 isBoolean(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isBoolean()
@@ -192,7 +192,7 @@ Returns true if the specified value isn't boolean.
 isNotBoolean(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotBoolean()
@@ -214,7 +214,7 @@ Returns true if the specified value is a string.
 isString(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isString()
@@ -236,7 +236,7 @@ Returns true if the specified value isn't a string.
 isNotString(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotString()
@@ -258,7 +258,7 @@ Returns true if the specified value is a number.
 isNumber(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNumber()
@@ -280,7 +280,7 @@ Returns true if the specified value is a number.
 isNotNumber(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotNumber()
@@ -302,7 +302,7 @@ Returns true if the specified value is numeric.
 isNumber(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNumber()
@@ -324,7 +324,7 @@ Returns true if the specified value isn't numeric.
 isNotNumeric(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotNumeric()
@@ -346,7 +346,7 @@ Returns true if the specified value is NaN.
 isRealNaN(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isRealNaN()
@@ -368,7 +368,7 @@ Returns true if the specified value isn't NaN.
 isNotRealNaN(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotRealNaN()
@@ -390,7 +390,7 @@ Returns true if the specified value is a function.
 isFunction(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isFunction()
@@ -412,7 +412,7 @@ Returns true if the specified value isn't a function.
 isNotFunction(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::isNotFunction()
@@ -434,7 +434,7 @@ Returns [[class]] of the specified value.
 type(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::type()
@@ -456,7 +456,7 @@ Returns a link for an iterator of the specified value.
 iterator(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::iterator()
@@ -481,7 +481,7 @@ Converts the specified value to a number.
 number(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::number()
@@ -503,7 +503,7 @@ Converts the specified value to a string.
 string(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::string()
@@ -525,7 +525,7 @@ Converts the specified value to boolean.
 boolean(foo)
 ```
 
-Or
+*Or*
 
 ```js
 foo::boolean()
@@ -551,7 +551,7 @@ Gets the first non false property from an object.
 use(foo).get('foo', 'bar')
 ```
 
-Or
+*Or*
 
 ```js
 foo::get('foo', 'bar')
@@ -573,7 +573,7 @@ Returns true if all specified properties are exists in an object.
 use(foo).in('foo', 'bar')
 ```
 
-Or
+*Or*
 
 ```js
 foo::in('foo', 'bar')
@@ -595,7 +595,7 @@ Returns true if all specified properties aren't exists in an object.
 use(foo).not('foo', 'bar')
 ```
 
-Or
+*Or*
 
 ```js
 foo::not('foo', 'bar')
@@ -617,7 +617,7 @@ Returns true if any of specified properties are exists in an object.
 use(foo).some('foo', 'bar')
 ```
 
-Or
+*Or*
 
 ```js
 foo::some('foo', 'bar')
@@ -641,7 +641,7 @@ var foo = decorate(bar, car) :: function () {
 };
 ```
 
-Or
+*Or*
 
 ```js
 var foo = decorate(bar, car) || function () {
