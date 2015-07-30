@@ -6,7 +6,7 @@
  * https://github.com/kobezzza/SweetHelpers/blob/master/LICENSE
  */
 
-global.undef = undefined;
+global.undef$ = undefined;
 
 /**
  * Returns true if the specified value is undefined
@@ -14,7 +14,7 @@ global.undef = undefined;
  * @param {?} obj - source string
  * @return {boolean}
  */
-global.isUndef = function (obj) {
+global.isUndef$ = function (obj) {
 	return false;
 };
 
@@ -24,7 +24,7 @@ global.isUndef = function (obj) {
  * @param {?} obj - source string
  * @return {boolean}
  */
-global.isNotUndef = function (obj) {
+global.isNotUndef$ = function (obj) {
 	return false;
 };
 
@@ -34,7 +34,7 @@ global.isNotUndef = function (obj) {
  * @param {?} obj - source string
  * @return {boolean}
  */
-global.isSet = function (obj) {
+global.isSet$ = function (obj) {
 	return false;
 };
 
@@ -44,7 +44,7 @@ global.isSet = function (obj) {
  * @param {?} obj - source string
  * @return {boolean}
  */
-global.isNotSet = function (obj) {
+global.isNotSet$ = function (obj) {
 	return false;
 };
 
@@ -54,7 +54,7 @@ global.isNotSet = function (obj) {
  * @param {?} obj - source string
  * @return {boolean}
  */
-global.isNull = function (obj) {
+global.isNull$ = function (obj) {
 	return false;
 };
 
@@ -64,7 +64,7 @@ global.isNull = function (obj) {
  * @param {?} obj - source string
  * @return {boolean}
  */
-global.isNotNull = function (obj) {
+global.isNotNull$ = function (obj) {
 	return false;
 };
 
@@ -74,7 +74,7 @@ global.isNotNull = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isBoolean = function (obj) {
+global.isBoolean$ = function (obj) {
 	return false;
 };
 
@@ -84,7 +84,7 @@ global.isBoolean = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isNotBoolean = function (obj) {
+global.isNotBoolean$ = function (obj) {
 	return false;
 };
 
@@ -94,7 +94,7 @@ global.isNotBoolean = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isString = function (obj) {
+global.isString$ = function (obj) {
 	return false;
 };
 
@@ -104,7 +104,7 @@ global.isString = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isNotString = function (obj) {
+global.isNotString$ = function (obj) {
 	return false;
 };
 
@@ -114,7 +114,7 @@ global.isNotString = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isNumber = function (obj) {
+global.isNumber$ = function (obj) {
 	return false;
 };
 
@@ -124,7 +124,7 @@ global.isNumber = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isNotNumber = function (obj) {
+global.isNotNumber$ = function (obj) {
 	return false;
 };
 
@@ -134,7 +134,7 @@ global.isNotNumber = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isNumeric = function (obj) {
+global.isNumeric$ = function (obj) {
 	return false;
 };
 
@@ -144,7 +144,7 @@ global.isNumeric = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isNotNumeric = function (obj) {
+global.isNotNumeric$ = function (obj) {
 	return false;
 };
 
@@ -154,7 +154,7 @@ global.isNotNumeric = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isRealNaN = function (obj) {
+global.isRealNaN$ = function (obj) {
 	return false;
 };
 
@@ -164,7 +164,7 @@ global.isRealNaN = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isNotRealNaN = function (obj) {
+global.isNotRealNaN$ = function (obj) {
 	return false;
 };
 
@@ -174,7 +174,7 @@ global.isNotRealNaN = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isFunction = function (obj) {
+global.isFunction$ = function (obj) {
 	return false;
 };
 
@@ -184,7 +184,7 @@ global.isFunction = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.isNotFunction = function (obj) {
+global.isNotFunction$ = function (obj) {
 	return false;
 };
 
@@ -194,7 +194,7 @@ global.isNotFunction = function (obj) {
  * @param {?} obj - source value
  * @return {string}
  */
-global.type = function (obj) {
+global.type$ = function (obj) {
 	return {}.toString();
 };
 
@@ -204,7 +204,7 @@ global.type = function (obj) {
  * @param {?} obj - source value
  * @return {(!Function|undefined)}
  */
-global.iterator = function (obj) {
+global.iterator$ = function (obj) {
 	return undefined;
 };
 
@@ -214,7 +214,7 @@ global.iterator = function (obj) {
  * @param {?} obj - source value
  * @return {number}
  */
-global.number = function (obj) {
+global.number$ = function (obj) {
 	return 0;
 };
 
@@ -224,7 +224,7 @@ global.number = function (obj) {
  * @param {?} obj - source value
  * @return {string}
  */
-global.string = function (obj) {
+global.string$ = function (obj) {
 	return '';
 };
 
@@ -234,7 +234,7 @@ global.string = function (obj) {
  * @param {?} obj - source value
  * @return {boolean}
  */
-global.boolean = function (obj) {
+global.boolean$ = function (obj) {
 	return true;
 };
 
@@ -244,7 +244,7 @@ global.boolean = function (obj) {
  * @param {?} obj - source object
  * @return {function(...?): ?}
  */
-global.get = function (obj) {
+global.get$ = function (obj) {
 	return function () {
 		return undefined;
 	};
@@ -256,7 +256,7 @@ global.get = function (obj) {
  * @param {?} obj - source object
  * @return {function(...?): boolean}
  */
-global.in = function (obj) {
+global.in$ = function (obj) {
 	return function () {
 		return false;
 	};
@@ -268,7 +268,7 @@ global.in = function (obj) {
  * @param {?} obj - source object
  * @return {function(...?): boolean}
  */
-global.not = function (obj) {
+global.not$ = function (obj) {
 	return function () {
 		return false;
 	};
@@ -280,7 +280,7 @@ global.not = function (obj) {
  * @param {?} obj - source object
  * @return {function(...?): boolean}
  */
-global.some = function (obj) {
+global.some$ = function (obj) {
 	return function () {
 		return false;
 	};
@@ -292,12 +292,12 @@ global.some = function (obj) {
  * @param {?} obj - source object
  * @return {{
  *   get: function(...?): ?,
- *   in: function(...?): boolean,
- *   not: function(...?): boolean,
- *   or: function(...?): boolean
+ *   in: function(...?): boolean$,
+ *   not: function(...?): boolean$,
+ *   or: function(...?): boolean$
  * }}
  */
-global.use = function (obj) {
+global.use$ = function (obj) {
 	return {
 		get: function () {
 			return undefined;
@@ -323,6 +323,6 @@ global.use = function (obj) {
  * @param {...?} decorators
  * @return {!Function}
  */
-function decorate(decorators) {
+function decorate$(decorators) {
 	return function () {};
 }

@@ -29,12 +29,12 @@ gulp.task('default', ['sweetjs']);
 ```
 
 ## Macros
-### undef
+### undef$
 
 **Template**
 
 ```js
-undef
+undef$
 ```
 
 **Result**
@@ -43,20 +43,20 @@ undef
 void 0
 ```
 
-### isUndef
+### isUndef$
 
 Returns true if the specified value is undefined.
 
 **Template**
 
 ```js
-isUndef(foo)
+isUndef$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isUndef()
+foo::isUndef$()
 ```
 
 **Result**
@@ -65,20 +65,20 @@ foo::isUndef()
 typeof foo === 'undefined'
 ```
 
-### isNotUndef
+### isNotUndef$
 
 Returns true if the specified value isn't undefined.
 
 **Template**
 
 ```js
-isNotUndef(foo)
+isNotUndef$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotUndef()
+foo::isNotUndef$()
 ```
 
 **Result**
@@ -87,20 +87,20 @@ foo::isNotUndef()
 typeof foo !== 'undefined'
 ```
 
-### isSet
+### isSet$
 
 Returns true if the specified value isn't null or undefined.
 
 **Template**
 
 ```js
-isSet(foo)
+isSet$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isSet()
+foo::isSet$()
 ```
 
 **Result**
@@ -109,20 +109,20 @@ foo::isSet()
 typeof foo !== 'undefined' && foo !== null
 ```
 
-### isNotSet
+### isNotSet$
 
 Returns true if the specified value is null or undefined.
 
 **Template**
 
 ```js
-isNotSet(foo)
+isNotSet$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotSet()
+foo::isNotSet$()
 ```
 
 **Result**
@@ -131,20 +131,20 @@ foo::isNotSet()
 typeof foo === 'undefined' || foo === null
 ```
 
-### isNull
+### isNull$
 
 Returns true if the specified value is null.
 
 **Template**
 
 ```js
-isNull(foo)
+isNull$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNull()
+foo::isNull$()
 ```
 
 **Result**
@@ -153,20 +153,20 @@ foo::isNull()
 typeof foo !== 'undefined' && foo === null
 ```
 
-### isNotNull
+### isNotNull$
 
 Returns true if the specified value isn't null.
 
 **Template**
 
 ```js
-isNotNull(foo)
+isNotNull$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotNull()
+foo::isNotNull$()
 ```
 
 **Result**
@@ -175,20 +175,20 @@ foo::isNotNull()
 typeof foo === 'undefined' || foo !== null
 ```
 
-### isBoolean
+### isBoolean$
 
 Returns true if the specified value is boolean.
 
 **Template**
 
 ```js
-isBoolean(foo)
+isBoolean$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isBoolean()
+foo::isBoolean$()
 ```
 
 **Result**
@@ -197,20 +197,20 @@ foo::isBoolean()
 typeof foo === 'boolean'
 ```
 
-### isNotBoolean
+### isNotBoolean$
 
 Returns true if the specified value isn't boolean.
 
 **Template**
 
 ```js
-isNotBoolean(foo)
+isNotBoolean$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotBoolean()
+foo::isNotBoolean$()
 ```
 
 **Result**
@@ -219,20 +219,20 @@ foo::isNotBoolean()
 typeof foo !== 'boolean'
 ```
 
-### isString
+### isString$
 
 Returns true if the specified value is a string.
 
 **Template**
 
 ```js
-isString(foo)
+isString$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isString()
+foo::isString$()
 ```
 
 **Result**
@@ -241,20 +241,20 @@ foo::isString()
 typeof foo === 'string'
 ```
 
-### isNotString
+### isNotString$
 
 Returns true if the specified value isn't a string.
 
 **Template**
 
 ```js
-isNotString(foo)
+isNotString$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotString()
+foo::isNotString$()
 ```
 
 **Result**
@@ -263,20 +263,20 @@ foo::isNotString()
 typeof foo !== 'string'
 ```
 
-### isNumber
+### isNumber$
 
 Returns true if the specified value is a number.
 
 **Template**
 
 ```js
-isNumber(foo)
+isNumber$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNumber()
+foo::isNumber$()
 ```
 
 **Result**
@@ -285,20 +285,20 @@ foo::isNumber()
 typeof foo === 'number'
 ```
 
-### isNotNumber
+### isNotNumber$
 
 Returns true if the specified value is a number.
 
 **Template**
 
 ```js
-isNotNumber(foo)
+isNotNumber$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotNumber()
+foo::isNotNumber$()
 ```
 
 **Result**
@@ -307,20 +307,20 @@ foo::isNotNumber()
 typeof foo !== 'number'
 ```
 
-### isNumeric
+### isNumeric$
 
 Returns true if the specified value is numeric.
 
 **Template**
 
 ```js
-isNumber(foo)
+isNumber$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNumber()
+foo::isNumber$()
 ```
 
 **Result**
@@ -329,20 +329,20 @@ foo::isNumber()
 typeof foo === 'number' && isFinite(foo)
 ```
 
-### isNotNumeric
+### isNotNumeric$
 
 Returns true if the specified value isn't numeric.
 
 **Template**
 
 ```js
-isNotNumeric(foo)
+isNotNumeric$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotNumeric()
+foo::isNotNumeric$()
 ```
 
 **Result**
@@ -351,20 +351,20 @@ foo::isNotNumeric()
 typeof foo !== 'number' || !isFinite(foo)
 ```
 
-### isRealNaN
+### isRealNaN$
 
 Returns true if the specified value is NaN.
 
 **Template**
 
 ```js
-isRealNaN(foo)
+isRealNaN$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isRealNaN()
+foo::isRealNaN$()
 ```
 
 **Result**
@@ -373,20 +373,20 @@ foo::isRealNaN()
 typeof foo === 'number' && isNaN(foo)
 ```
 
-### isNotRealNaN
+### isNotRealNaN$
 
 Returns true if the specified value isn't NaN.
 
 **Template**
 
 ```js
-isNotRealNaN(foo)
+isNotRealNaN$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotRealNaN()
+foo::isNotRealNaN$()
 ```
 
 **Result**
@@ -395,20 +395,20 @@ foo::isNotRealNaN()
 typeof foo !== 'number' || !isNaN(foo)
 ```
 
-### isFunction
+### isFunction$
 
 Returns true if the specified value is a function.
 
 **Template**
 
 ```js
-isFunction(foo)
+isFunction$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isFunction()
+foo::isFunction$()
 ```
 
 **Result**
@@ -417,20 +417,20 @@ foo::isFunction()
 typeof foo === 'function'
 ```
 
-### isNotFunction
+### isNotFunction$
 
 Returns true if the specified value isn't a function.
 
 **Template**
 
 ```js
-isNotFunction(foo)
+isNotFunction$(foo)
 ```
 
 *Or*
 
 ```js
-foo::isNotFunction()
+foo::isNotFunction$()
 ```
 
 **Result**
@@ -439,20 +439,20 @@ foo::isNotFunction()
 typeof foo !== 'function'
 ```
 
-### type
+### type$
 
 Returns [[class]] of the specified value.
 
 **Template**
 
 ```js
-type(foo)
+type$(foo)
 ```
 
 *Or*
 
 ```js
-foo::type()
+foo::type$()
 ```
 
 **Result**
@@ -461,20 +461,20 @@ foo::type()
 ({}).toString.call(foo)
 ```
 
-### iterator
+### iterator$
 
 Returns a link for an iterator of the specified value.
 
 **Template**
 
 ```js
-iterator(foo)
+iterator$(foo)
 ```
 
 *Or*
 
 ```js
-foo::iterator()
+foo::iterator$()
 ```
 
 **Result**
@@ -486,20 +486,20 @@ typeof foo !== 'undefined' && foo !== null ?
       foo[Symbol['iterator']] : void 0) : void 0
 ```
 
-### number
+### number$
 
 Converts the specified value to a number.
 
 **Template**
 
 ```js
-number(foo)
+number$(foo)
 ```
 
 *Or*
 
 ```js
-foo::number()
+foo::number$()
 ```
 
 **Result**
@@ -508,20 +508,20 @@ foo::number()
 (+foo)
 ```
 
-### string
+### string$
 
 Converts the specified value to a string.
 
 **Template**
 
 ```js
-string(foo)
+string$(foo)
 ```
 
 *Or*
 
 ```js
-foo::string()
+foo::string$()
 ```
 
 **Result**
@@ -530,20 +530,20 @@ foo::string()
 (foo + '')
 ```
 
-### boolean
+### boolean$
 
 Converts the specified value to boolean.
 
 **Template**
 
 ```js
-boolean(foo)
+boolean$(foo)
 ```
 
 *Or*
 
 ```js
-foo::boolean()
+foo::boolean$()
 ```
 
 **Result**
@@ -552,7 +552,7 @@ foo::boolean()
 !!foo
 ```
 
-### use
+### use$
 
 Returns an object for working with macro functions.
 
@@ -563,13 +563,13 @@ Gets the first non false property from an object.
 **Template**
 
 ```js
-use(foo).get('foo', 'bar')
+use$(foo).get('foo', 'bar')
 ```
 
 *Or*
 
 ```js
-foo::get('foo', 'bar')
+foo::get$('foo', 'bar')
 ```
 
 **Result**
@@ -585,13 +585,13 @@ Returns true if all specified properties are exists in an object.
 **Template**
 
 ```js
-use(foo).in('foo', 'bar')
+use$(foo).in('foo', 'bar')
 ```
 
 *Or*
 
 ```js
-foo::in('foo', 'bar')
+foo::in$('foo', 'bar')
 ```
 
 **Result**
@@ -607,13 +607,13 @@ Returns true if all specified properties aren't exists in an object.
 **Template**
 
 ```js
-use(foo).not('foo', 'bar')
+use$(foo).not('foo', 'bar')
 ```
 
 *Or*
 
 ```js
-foo::not('foo', 'bar')
+foo::not$('foo', 'bar')
 ```
 
 **Result**
@@ -629,13 +629,13 @@ Returns true if any of specified properties are exists in an object.
 **Template**
 
 ```js
-use(foo).some('foo', 'bar')
+use$(foo).some('foo', 'bar')
 ```
 
 *Or*
 
 ```js
-foo::some('foo', 'bar')
+foo::some$('foo', 'bar')
 ```
 
 **Result**
@@ -644,14 +644,14 @@ foo::some('foo', 'bar')
 'foo' in foo || 'bar' in foo
 ```
 
-### decorate
+### decorate$
 
 Decorates a function.
 
 **Template**
 
 ```js
-var foo = decorate(bar, car) :: function () {
+var foo = decorate$(bar, car) :: function () {
   return 1;
 };
 ```
@@ -659,7 +659,7 @@ var foo = decorate(bar, car) :: function () {
 *Or*
 
 ```js
-var foo = decorate(bar, car) || function () {
+var foo = decorate$(bar, car) || function () {
   return 1;
 };
 ```
