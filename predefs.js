@@ -189,6 +189,17 @@ global.isNotFunction$ = function (obj) {
 };
 
 /**
+ * Returns true if the specified value instance of a base object
+ *
+ * @param {?} obj - source value
+ * @param {!Object} base - base object
+ * @return {boolean}
+ */
+global.instanceof$ = function (obj, base) {
+	return false;
+};
+
+/**
  * Returns [[class]] of the specified value
  *
  * @param {?} obj - source value

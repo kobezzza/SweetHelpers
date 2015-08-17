@@ -439,6 +439,28 @@ foo::isNotFunction$()
 typeof foo !== 'function'
 ```
 
+### instanceof$
+
+Returns true if the specified value instance of a base object.
+
+**Template**
+
+```js
+instanceof$(foo, String)
+```
+
+*Or*
+
+```js
+foo::instanceof$(String)
+```
+
+**Result**
+
+```js
+foo instanceof String || foo && foo.constructor && foo.constructor.name === String.name
+```
+
 ### type$
 
 Returns [[class]] of the specified value.
