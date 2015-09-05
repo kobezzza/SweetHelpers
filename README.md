@@ -21,7 +21,7 @@ var gulp = require('gulp'),
 
 gulp.task('sweetjs', function () {
   gulp.src('./myFile.js')
-    .pipe(sweetjs({modules: ['./node_modules/sweet-helpers/index.sweetjs']}))
+    .pipe(sweetjs({modules: ['./node_modules/sweet-helpers/index.sjs']}))
     .pipe(gulp.dest('./public/js'));
 });
 
