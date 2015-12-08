@@ -95,7 +95,6 @@
         "override": false
       }
     },
-    "checkTypes": "strictNativeCase",
     "checkParamNames": true,
     "requireHyphenBeforeDescription": true
   },
