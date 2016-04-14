@@ -22,6 +22,6 @@
     "sweetjs"
   ],
   "devDependencies": {
-    "jscs": "^2.0.0"
+    "jscs": "^3.0.0"
   }
 }
