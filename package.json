@@ -20,8 +20,5 @@
     "javascript",
     "macros",
     "sweetjs"
-  ],
-  "devDependencies": {
-    "jscs": "^3.0.0"
-  }
+  ]
 }
