@@ -6,4 +6,4 @@
  * https://github.com/kobezzza/SweetHelpers/blob/master/LICENSE
  */
 
-// Just append index.sweetjs to your SweetJS task
+// Just append index.sjs to your SweetJS task

@@ -2,7 +2,7 @@
   "name": "sweet-helpers",
   "description": "Collection of SweetJS macros.",
   "homepage": "https://github.com/kobezzza/SweetHelpers",
-  "version": "2.0.0",
+  "version": "3.0.1",
   "license": "MIT",
   "author": {
     "name": "kobezzza",
@@ -22,6 +22,6 @@
     "sweetjs"
   ],
   "devDependencies": {
-    "jscs": "^2.0.0"
+    "jscs": "^3.0.0"
   }
 }

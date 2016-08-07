@@ -228,6 +228,18 @@ macro isNotFunction$ {
 
 export isNotFunction$;
 
+macro instanceof$ {
+	rule { ($obj:expr, $constr:expr) } => {
+		($obj instanceof $constr || $obj && $obj.constructor && $obj.constructor.name === $constr.name)
+	}
+
+	rule infix { $obj:expr:: | ($constr:expr) } => {
+		(instanceof$($obj, $constr))
+	}
+}
+
+export instanceof$;
+
 macro type$ {
 	rule { ($obj:expr) } => {
 		(({}).toString.call($obj))

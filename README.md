@@ -21,7 +21,7 @@ var gulp = require('gulp'),
 
 gulp.task('sweetjs', function () {
   gulp.src('./myFile.js')
-    .pipe(sweetjs({modules: ['./node_modules/sweet-helpers/index.sweetjs']}))
+    .pipe(sweetjs({modules: ['./node_modules/sweet-helpers/index.sjs']}))
     .pipe(gulp.dest('./public/js'));
 });
 
@@ -437,6 +437,28 @@ foo::isNotFunction$()
 
 ```js
 typeof foo !== 'function'
+```
+
+### instanceof$
+
+Returns true if the specified value instance of a base object.
+
+**Template**
+
+```js
+instanceof$(foo, String)
+```
+
+*Or*
+
+```js
+foo::instanceof$(String)
+```
+
+**Result**
+
+```js
+foo instanceof String || foo && foo.constructor && foo.constructor.name === String.name
 ```
 
 ### type$
